@@ -11,4 +11,8 @@ public class Restaurant implements Serializable {
     @Expose
     public Restaurant_ restaurant;
 
+    public Restaurant_ getRestaurant() {
+        return restaurant;
+    }
+
 }

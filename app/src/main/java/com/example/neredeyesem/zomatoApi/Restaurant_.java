@@ -117,6 +117,16 @@ public class Restaurant_  implements Serializable {
     @Expose
     public List<Object> establishmentTypes = null;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+
     public double distance;
 
 
