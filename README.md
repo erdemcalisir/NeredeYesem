@@ -1,3 +1,3 @@
 # NeredeYesem
 
-Erdem Çalışır v.3.1
+Erdem Çalışır v.3.2
