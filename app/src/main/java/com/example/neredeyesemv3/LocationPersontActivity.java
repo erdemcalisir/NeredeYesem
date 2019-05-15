@@ -195,6 +195,10 @@ public class LocationPersontActivity extends AppCompatActivity implements Google
             startActivity(intent);
 
         }
+        else
+        {
+            locationTv.setText("locat boş");
+        }
 
         startLocationUpdates();
     }
@@ -229,17 +233,17 @@ public class LocationPersontActivity extends AppCompatActivity implements Google
             locationTv.setText("Latitude : " + location.getLatitude() + "\nLongitude : " + location.getLongitude());
 
 
-//            try {
-//                Thread.sleep(200);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//
-//            Intent intent;
-//            intent = new Intent(LocationPersontActivity.this,ListRestaurant.class);
-//            intent.putExtra("lat",location.getLatitude()+"");
-//            intent.putExtra("longi",location.getLongitude()+"");
-//            startActivity(intent);
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            Intent intent;
+            intent = new Intent(LocationPersontActivity.this,ListRestaurant.class);
+            intent.putExtra("lat",location.getLatitude()+"");
+            intent.putExtra("longi",location.getLongitude()+"");
+            startActivity(intent);
 
 
         }
