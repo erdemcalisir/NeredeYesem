@@ -9,8 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
+//Exampe restaurant class and their functions getter and setter
 public class Restaurant_  implements Serializable {
 
+    //constructor
+
+    /*
     public Restaurant_(String name, Location location, UserRating userRating) {
         this.name = name;
         this.location = location;
@@ -22,7 +27,10 @@ public class Restaurant_  implements Serializable {
         this.location = location;
         this.id = id;
     }
+    */
 
+//not necessary getter and setter
+    /*
     public R getR() {
         return r;
     }
@@ -142,6 +150,8 @@ public class Restaurant_  implements Serializable {
     public double getDistance() {
         return distance;
     }
+    */
+
     public String getThumb() {
         return thumb;
     }

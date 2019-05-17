@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+//API restaurant class
+
 public class Restaurant implements Serializable {
 
     @SerializedName("restaurant")

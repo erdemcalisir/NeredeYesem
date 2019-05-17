@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+
+//example  restaurant class for ListRestaurant activty
 public class Example {
 
     @SerializedName("results_found")

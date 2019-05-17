@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+//API R class
 public class R  implements Serializable {
 
     @SerializedName("res_id")

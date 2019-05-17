@@ -1,41 +1,29 @@
 package com.example.neredeyesemv3;
 
+//necessary imports
 import androidx.appcompat.app.AppCompatActivity;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-
-
 import android.Manifest;
-import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.os.Build;
 import android.widget.TextView;
-import android.widget.Toast;
 
-
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
-import com.google.android.gms.location.LocationServices;
+
+//the main purpose is finding location
+//if found location corecctly, next activty will be restaurant list
+public class LocationPersonActivity extends AppCompatActivity {
 
 
-public class LocationPersontActivity extends AppCompatActivity  {
-
-
-
+    //necesarry definitions for location
     public static int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private LocationCallback locationCallback;
@@ -43,6 +31,7 @@ public class LocationPersontActivity extends AppCompatActivity  {
     TextView tvLocation;
     private boolean requestingLocationUpdate = true;
 
+    //global variables for to put into intent
     double lastLat;
     double lastLon;
 
@@ -64,15 +53,19 @@ public class LocationPersontActivity extends AppCompatActivity  {
                 if (locationResult == null) {
                     return;
                 }
+                //find the location pieces which are lat and long
                 for (Location location : locationResult.getLocations()) {
                     Double lat = location.getLatitude();
                     Double lon = location.getLongitude();
-                    tvLocation.setText("Lat: " + lat + ", Lon: " + lon);
+                    //display results
+                    tvLocation.setText("Latitude: " + lat + "\n" + ", Longitude: " + lon);
 
-                    lastLat= location.getLatitude();
-                    lastLon= location.getLongitude();
+                    //assign values
+                    lastLat = location.getLatitude();
+                    lastLon = location.getLongitude();
                 }
 
+                // for to show results to user
                 try {
                     Thread.sleep(5000);
                 } catch (InterruptedException e) {
@@ -80,20 +73,23 @@ public class LocationPersontActivity extends AppCompatActivity  {
                 }
 
                 Intent intent;
-                intent = new Intent(LocationPersontActivity.this,ListRestaurant.class);
-                intent.putExtra("lat",lastLat +"");
-                intent.putExtra("longi",lastLon+"");
+                //create new intent
+                intent = new Intent(LocationPersonActivity.this, ListRestaurant.class);
+                //put extras
+                //which is latitude and longitude
+                //we will use in other activity for finding the closest restaurant
+                intent.putExtra("lat", lastLat + "");
+                intent.putExtra("longi", lastLon + "");
                 startActivity(intent);
 
             }
         };
 
         locationRequest = new LocationRequest();
-
     }
 
-
-
+    //after create life cycyle element, we continue resum method
+    //we skipped the start element
     @Override
     protected void onResume() {
         super.onResume();
@@ -102,6 +98,9 @@ public class LocationPersontActivity extends AppCompatActivity  {
         }
     }
 
+    //start update locations
+    //we need first Permissions granted
+    //and check manifest file
     private void startLocationUpdate() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -137,36 +136,5 @@ public class LocationPersontActivity extends AppCompatActivity  {
             }
         }
     }
-
-
 }
 
-
-
-
-
-
-
-
-
-
-
-    // we build google api client
-
-
-
-//To be sure to avoid to request permissions
-// if the user has already granted them,
-// we add the permissions to the list only
-// if the permissions is not already granted
-
-    //In the onResume method,
-    //we need to check if the user’s device has the Google Play Services installed.
-    //This check is made inside a checkPlayServices method
-
-
-        // Permissions ok, we get last location
-
-
-//we check the request code to be sure to manage the correct call.
-//It is important in an application in which several permissions are requested

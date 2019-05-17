@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".RestaurantDetail"></activity>
-        <activity android:name=".LocationPersontActivity" />
+        <activity android:name=".LocationPersonActivity" />
         <activity android:name=".ListRestaurant" />
         <activity android:name=".MainActivity">
             <intent-filter>

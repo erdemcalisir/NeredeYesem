@@ -5,6 +5,7 @@ package com.example.neredeyesemv3.zomatoApi;
         import com.google.gson.annotations.Expose;
         import com.google.gson.annotations.SerializedName;
 
+//Zomato API
 public class Zomato implements Serializable {
 
     @SerializedName("results_found")

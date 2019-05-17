@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+//user rating class from API
 public class UserRating implements Serializable {
 
     @SerializedName("aggregate_rating")

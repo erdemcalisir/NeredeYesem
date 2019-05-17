@@ -7,6 +7,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Query;
 
+//API interface
+//user-key: 7d081e047da517bf8b91ec2908c9c124
+//if doesn't return restaurants, API key must be make over
 
 public interface Api {
 
