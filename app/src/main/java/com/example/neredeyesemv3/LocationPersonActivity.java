@@ -58,7 +58,7 @@ public class LocationPersonActivity extends AppCompatActivity {
                     Double lat = location.getLatitude();
                     Double lon = location.getLongitude();
                     //display results
-                    tvLocation.setText("Latitude: " + lat + "\n" + ", Longitude: " + lon);
+                    tvLocation.setText("Latitude: " + lat + "\n" + "Longitude: " + lon);
 
                     //assign values
                     lastLat = location.getLatitude();
